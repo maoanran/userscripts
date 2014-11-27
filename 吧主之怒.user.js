@@ -24,6 +24,9 @@ if (window == window.top && /http:\/\/tieba\.baidu\.com\/f/g.test(location.href)
 
 //删
 function addDeleteLinks($title) {
+    if($title.attr('class') != "threadlist_li_right j_threadlist_li_right")
+        return;
+
     var $a = $title.find('a').eq(0);
     var href = "http://tieba.baidu.com/mo/q-/m?kz=" + $a.attr("href").replace(/\/p\//g, '') + "&pinf=1__";
     $a.parent().prepend("<span target='_blank' style='float: left;' name='delete' class='green' href=" + href + ">删&nbsp;&nbsp;</span>");
@@ -76,6 +79,8 @@ function addDeleteLinks($title) {
 
 //封
 function addBlockLinks($title) {
+    if($title.attr('class') != "threadlist_li_right j_threadlist_li_right")
+        return;
 
     var $a = $title.children().eq(0).find('a').eq(0);
     var href = "http://tieba.baidu.com/mo/q-/m?kz=" + $a.attr("href").replace(/\/p\//g, '') + "&pinf=1__";
