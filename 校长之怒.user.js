@@ -471,8 +471,9 @@ if (window == window.top) {
 		var imgSize = getConfig(configEnum.onlyShowImgSize);
 		var recentImg = getConfig(configEnum.recentImg);
 
-		if(blacklist == null)
-			blacklist = [];
+		if(blacklist == null || blacklist.length === 0)
+			blacklist = ["贴吧游戏"];
+
 		if (imgSize == null) {
 			imgSize = new Object();
 			imgSize.imgMinWidth = 500;
@@ -713,7 +714,7 @@ if (window == window.top) {
 		//列表相关显示
 		function displayThreadList() {
 
-			$ThreadList = $("li.j_thread_list");
+			$ThreadList = $("div.t_con");
 			var temp = new Object();
 			
 			for (var i = 0; i < $ThreadList.length; i++) {
@@ -723,7 +724,8 @@ if (window == window.top) {
 				if (st1 == null || st1 != 0) {
 					for (var j = 0; j < blacklist.length && username.length > 0; j++) {
 						if (username == blacklist[j]) {
-							$ThreadList.eq(i).remove();
+							alert($ThreadList.html())
+							$ThreadList.eq(i).parent().remove();
 							temp[username] = temp[username] == null ? 1 : temp[username] + 1;
 						}
 					}
