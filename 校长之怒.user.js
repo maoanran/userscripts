@@ -724,7 +724,6 @@ if (window == window.top) {
 				if (st1 == null || st1 != 0) {
 					for (var j = 0; j < blacklist.length && username.length > 0; j++) {
 						if (username == blacklist[j]) {
-							alert($ThreadList.html())
 							$ThreadList.eq(i).parent().remove();
 							temp[username] = temp[username] == null ? 1 : temp[username] + 1;
 						}
