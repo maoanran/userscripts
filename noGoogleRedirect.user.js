@@ -8,6 +8,7 @@
 // @include        https://encrypted.google.*/search*
 // @updateURL      https://github.com/maoanran/userscripts/raw/master/noGoogleRedirect.user.js
 // @grant          none
+// @version        1.0.0
 // ==/UserScript==
 (function () {
   window.addEventListener('load', function () {
